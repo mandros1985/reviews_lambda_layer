@@ -4,4 +4,8 @@ docker run -v "$PWD":/var/task "lambci/lambda:build-python3.7" /bin/sh -c "yum i
 
 2
 
+zip -r -9 reviews_lambda_layer.zip python
+
+3
+
 aws lambda publish-layer-version --layer-name reviews_lambda_layer --description "My python libs for reviews lambda app" --zip-file fileb://reviews_lambda_layer.zip --compatible-runtimes "python3.7" --profile pub --region eu-west-1
